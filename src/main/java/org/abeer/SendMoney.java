@@ -3,22 +3,16 @@ package org.abeer;
 import java.sql.*;
 import java.util.Scanner;
 
-public class Main
+public class SendMoney
 {
-    private static final String url="jdbc:mysql://localhost:3306/BANKACCOUNT";
-    private static final String username="root";
-    private static final String password="Swechhar";
-    public static void main(String[] args)
+
+    public static void sendmoney(String url,String username,String password,int acno,double amount)
     {
        try
        {
            Connection conn=DriverManager.getConnection(url,username,password);
            conn.setAutoCommit(false);
            Scanner in=new Scanner(System.in);
-           System.out.println("ENTER ACCOUNT NUMBER TO DEBIT");
-           int acno=in.nextInt();
-           System.out.println("ENTER AMOUNT TO BE DEBITED");
-           double amount=in.nextDouble();
            if (!CheckBalance(conn, acno, amount)) {
                System.out.println("Insufficient balance ❌");
                conn.rollback();
