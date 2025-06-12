@@ -1,4 +1,4 @@
-package org.abeer;
+package org.abeer.Confidential;
 
 public class Credits
 {

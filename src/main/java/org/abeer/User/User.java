@@ -1,6 +1,6 @@
 package org.abeer.User;
 
-import org.abeer.Credits;
+import org.abeer.Confidential.Credits;
 
 public class User
 {

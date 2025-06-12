@@ -1,10 +1,9 @@
 package org.abeer;
 
+import org.abeer.Confidential.Credits;
 import org.abeer.User.*;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
-import java.util.WeakHashMap;
 
 public class management
 {
@@ -30,47 +29,51 @@ public class management
                 int acno=in.nextInt();
                 System.out.println("ENTER YOUR ACCOUNT PIN");
                 int pin=in.nextInt();
+                int flag=0;
                 if(Validation.validation(Credits.url, Credits.username, Credits.password, acno, pin))
                 {
-                    System.out.println("MENU");
-                    System.out.println("1 : ADD MONEY\n2 : SEND MONEY\n3 : WITHDRAW MONEY\n4 : CHECK BALANCE\n 5 : EXIT");
-                    int ch=in.nextInt();
-                    switch (ch)
+                    while(flag==0)
                     {
-                        case 1://add money
+                        System.out.println("MENU");
+                        System.out.println("1 : ADD MONEY\n2 : SEND MONEY\n3 : WITHDRAW MONEY\n4 : CHECK BALANCE\n 5 : EXIT");
+                        int ch=in.nextInt();
+                        switch (ch)
                         {
-                            System.out.println("ENTER AMOUNT");
-                            double amount=in.nextDouble();
-                            User.addmoney(acno,amount);
-                            break;
-                        }
-                        case 2://send money
-                        {
-                            System.out.println("ENTER AMOUNT");
-                            double amount=in.nextDouble();
-                            User.sendMoney(acno,amount);
-                            break;
-                        }
-                        case 3://withdraw
-                        {
-                            System.out.println("ENTER AMOUNT");
-                            double amount=in.nextDouble();
-                            User.withdraw(acno,amount);
-                            break;
-                        }
-                        case 4://check Balance
-                        {
-                            User.checkBalance(acno);
-                            break;
-                        }
-                        case 5:
-                        {
-                            System.out.println("EXIT");
-                            return;
+                            case 1://add money
+                            {
+                                System.out.println("ENTER AMOUNT");
+                                double amount=in.nextDouble();
+                                User.addmoney(acno,amount);
+                                break;
+                            }
+                            case 2://send money
+                            {
+                                System.out.println("ENTER AMOUNT");
+                                double amount=in.nextDouble();
+                                User.sendMoney(acno,amount);
+                                break;
+                            }
+                            case 3://withdraw
+                            {
+                                System.out.println("ENTER AMOUNT");
+                                double amount=in.nextDouble();
+                                User.withdraw(acno,amount);
+                                break;
+                            }
+                            case 4://check Balance
+                            {
+                                User.checkBalance(acno);
+                                break;
+                            }
+                            case 5:
+                            {
+                                System.out.println("EXIT");
+                                return;
+                            }
                         }
                     }
                 }
-            }
+                    }
         }
     }
 }
