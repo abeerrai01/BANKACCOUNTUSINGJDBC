@@ -1,5 +1,7 @@
 package org.abeer;
 
+import org.abeer.Admin.Admin;
+import org.abeer.Admin.ValidationAdmin;
 import org.abeer.Confidential.Credits;
 import org.abeer.User.*;
 
@@ -20,7 +22,44 @@ public class management
         {
             case 1 :
             {
-                //admin
+                System.out.println("ENTER YOUR USER ID");
+                int acno=in.nextInt();
+                System.out.println("ENTER YOUR PIN");
+                int pin=in.nextInt();
+                int flag=0;
+                if(ValidationAdmin.validation(Credits.url, Credits.username, Credits.password, acno, pin))
+                {
+                    while(flag==0)
+                    {
+                        System.out.println("MENU");
+                        System.out.println("1 : ADD ACCOUNT\n2 : TOTAL MONEY\n3 : TOTAL USER\n4 : EXIT");
+                        int ch=in.nextInt();
+                        switch (ch)
+                        {
+                            case 1://ADD ACCOUNT
+                            {
+                                Admin.AddAccount();
+                                break;
+                            }
+                            case 2://total money
+                            {
+                                Admin.TotalMoney();
+                                break;
+                            }
+                            case 3://total user
+                            {
+                                Admin.TotalUser();
+                                break;
+                            }
+                            case 4:
+                            {
+                                System.out.println("EXIT");
+                                return;
+                            }
+                        }
+                    }
+                    break;
+                }
                 break;
             }
             case 2 :
@@ -30,7 +69,7 @@ public class management
                 System.out.println("ENTER YOUR ACCOUNT PIN");
                 int pin=in.nextInt();
                 int flag=0;
-                if(Validation.validation(Credits.url, Credits.username, Credits.password, acno, pin))
+                if(ValidationUser.validation(Credits.url, Credits.username, Credits.password, acno, pin))
                 {
                     while(flag==0)
                     {
@@ -72,6 +111,7 @@ public class management
                             }
                         }
                     }
+                    break;
                 }
                     }
         }

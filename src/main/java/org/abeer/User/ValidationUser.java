@@ -1,9 +1,8 @@
 package org.abeer.User;
 
 import java.sql.*;
-import java.util.Scanner;
 
-public class Validation
+public class ValidationUser
 {
     public static boolean validation(String url,String username,String password,int acno,int pin)
     {
