@@ -1,4 +1,6 @@
-package org.abeer;
+package org.abeer.User;
+
+import org.abeer.Credits;
 
 public class User
 {
@@ -12,6 +14,10 @@ public class User
     }
     public static void checkBalance(int acno)
     {
-
+        CheckBalance.checkBalance(Credits.url,Credits.username,Credits.password,acno);
+    }
+    public static void withdraw(int acno,double amount)
+    {
+        Withdraw.withdraw(Credits.url,Credits.username,Credits.password,amount,acno);
     }
 }

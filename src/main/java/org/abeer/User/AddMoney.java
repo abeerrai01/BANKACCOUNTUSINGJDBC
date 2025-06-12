@@ -1,4 +1,4 @@
-package org.abeer;
+package org.abeer.User;
 
 import java.sql.*;
 import java.util.Scanner;
